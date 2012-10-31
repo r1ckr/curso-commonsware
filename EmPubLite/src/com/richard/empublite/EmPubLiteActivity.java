@@ -1,10 +1,13 @@
 package com.richard.empublite;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 
-public class EmPubLiteActivity extends Activity {
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
+public class EmPubLiteActivity extends SherlockActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -14,7 +17,23 @@ public class EmPubLiteActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    	new MenuInflater(this).inflate(R.menu.options, menu);
+        return super.onCreateOptionsMenu(menu);
     }
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			return true;
+		case R.id.about:
+			return true;
+		case R.id.help:
+			return true;
+
+		}
+		return super.onOptionsItemSelected(item);
+	}
+    
+    
 }
